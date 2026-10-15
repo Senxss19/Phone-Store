@@ -1,0 +1,19 @@
+.form-group {
+    margin-bottom: 20px;
+}
+
+.description {
+    white-space: pre-wrap;
+    word-break: break-all;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background: lightblue;
+}
+
+.phones {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 40px;
+}

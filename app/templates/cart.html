@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Your shopping cart</h1>
+
+<div class="table-responsive">
+  {% if list|length == 0 %}
+  <div class="alert alert-info">No products in cart yet</div>
+  {% else %}
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Product Model</th>
+        <th>Price</th>
+        <th>Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for (cart, product, count) in list %}
+      <tr>
+        <td>{{ product.model }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ count }}</td>
+
+      </tr>
+      {% endfor %}
+    </tbody>
+
+  </table>
+  {% endif %}
+
+</div>
+
+{% if list|length != 0 %}
+<a href="{{url_for('main.checkout')}}" class="btn btn-primary">Checkout</a>
+{% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="phones">
+{% for row in list %}
+
+<div class="card" style="width: 18rem;">
+    <img src="{{ url_for('static', filename='images/' ~ row.id ~ '.png') }}" class="card-img-top" alt="{{row.model}}">
+    <div class="card-body">
+      <h5 class="card-title">{{row.model}}</h5>
+      <p class="card-text">Brand: {{row.brand}}</p>
+      <p class="card-text">Price: ${{row.price}}</p>
+      <p class="card-text">Camera: {{row.camera}}</p>
+      <p class="card-text">Screen Size: {{row.screen_size}}</p>
+      <p class="card-text">Inventory: <span id="iv">{{row.inventory}}</span></p>
+      <a href="{{url_for('main.addtocart', product_id=row.id)}}" class="btn btn-primary" data-id="{{row.id}}" data-action="addtocart">Add to cart!</a>
+    </div>
+  </div>
+{% endfor %}
+</div>
+
+{% endblock %}
